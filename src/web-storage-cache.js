@@ -21,13 +21,12 @@
     // https://github.com/jeromegn/Backbone.localStorage/blob/master/backbone.localStorage.js#L63
     var defaultSerializer = {
         serialize: function(item) {
-            return LZString.compressToUTF16(JSON.stringify(item));
+            return item;
         },
         // fix for "illegal access" error on Android when JSON.parse is
         // passed null
         deserialize: function(data) {
-            data = LZString.decompressFromUTF16(data);
-            return data && JSON.parse(data);
+            return data;
         }
     };
 
